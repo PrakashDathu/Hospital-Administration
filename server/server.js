@@ -7,7 +7,7 @@ import mongoose from 'mongoose';
 
 const path = require('path');
 import config from './config';
-var compression = require('compression');
+let compression = require('compression');
 // Create app instance
 const app = express();
 app.use(compression());

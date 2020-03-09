@@ -22,6 +22,7 @@ const patientSchema = new Schema({
     createdBy: { type: String, unique: false, required: true },
     height: { type: Number, required: true },
     bloodType: { type: String, required: true },
+    address: {type: Object, required: true},
 });
 
 // Define schema methods

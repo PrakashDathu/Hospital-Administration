@@ -3,4 +3,4 @@ export const loginConstants = {
     LOGOUT: "USERS_LOGOUT",
     USER_IS_AUTHENTICATED: "USER_IS_AUTHENTICATED",
     LOGIN_ERROR: "ALERT_ERROR"
-}
+};

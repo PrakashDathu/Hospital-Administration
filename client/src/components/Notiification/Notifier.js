@@ -15,14 +15,14 @@ class Notifier extends Component {
 
     removeDisplayed = (id) => {
         this.displayed = this.displayed.filter(key => id !== key)
-    }
+    };
 
     componentDidUpdate() {
         const { notifications = [] } = this.props;
 
         notifications.forEach(({ key, message, options = {}, dismissed = false }) => {
             if (dismissed) {
-                this.props.closeSnackbar(key)
+                this.props.closeSnackbar(key);
                 return
             }
             // Do nothing if snackbar is already displayed

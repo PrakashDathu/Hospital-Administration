@@ -1,7 +1,6 @@
 // thanks my lovely fellow developers @Shopee
 import React from "react";
-import { combineReducers } from "redux";
-import { connect, ReactReduxContext } from "react-redux";
+import {  ReactReduxContext } from "react-redux";
 import createReducer from "../reducers/rootReducer";
 
 export function injectReducer(store, asyncReducers, replaceExisting) {

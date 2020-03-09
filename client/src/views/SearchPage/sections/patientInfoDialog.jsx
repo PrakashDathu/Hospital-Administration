@@ -16,7 +16,6 @@ import GridItem from "../../../components/Grid/GridItem";
 import PrescriptionCard from "./prescriptionCard";
 import {loadPatientPrescription} from "../actions";
 import {connect} from "react-redux";
-import PatientRegistration from "../../../components/forms/patientRegistration";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -83,7 +82,7 @@ class PatientInfoDialog extends Component {
         });
     }
     render() {
-        const { classes, details, close, prescriptions } = this.props;
+        const { details, close, prescriptions } = this.props;
         const value = this.state.value;
         return (
             <Dialog

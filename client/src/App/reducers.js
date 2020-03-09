@@ -40,7 +40,7 @@ const appReducer = (state = initialState, action) => {
                 ? { ...notification, dismissed: true }
                 : { ...notification }
         )),
-      }
+      };
 
     case notificationConstants.REMOVE_SNACKBAR:
       return {

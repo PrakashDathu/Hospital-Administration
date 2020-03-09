@@ -4,7 +4,6 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/core/SvgIcon/SvgIcon";
 import React from "react";
 import {changeStoreState} from "../../helpers/utils";
-import {loginConstants} from "../../views/Login/constants";
 import {Constants} from "../../App/constants";
 
 export const createPatient = (values) => {

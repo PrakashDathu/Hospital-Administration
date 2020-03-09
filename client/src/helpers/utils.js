@@ -12,10 +12,10 @@ export function updateItemInArray(array, itemId,prop, updateItemCallback) {
             return item
         }
         // Use the provided callback to create an updated item
-        const updatedItem = updateItemCallback(item)
+        const updatedItem = updateItemCallback(item);
         console.log("updateItem "+updatedItem);
         return updatedItem
-    })
+    });
 
     return updatedItems
 }

@@ -7,7 +7,7 @@ import Patient from '../models/patient.model';
  * @returns record
  */
 export function createPatient(req, res) {
-    const { firstName, gender, lastName, email, dob, age, phone, createdBy, bloodType, height } = req.body;
+    const { firstName, gender, lastName, email, dob, age, phone, createdBy, bloodType, height, address } = req.body;
     Patient.findOne({ 'phone': phone }, (err, userMatch) => {
         if (userMatch) {
             return res.json({
@@ -25,6 +25,7 @@ export function createPatient(req, res) {
             bloodType: bloodType,
             height: height,
             gender: gender,
+            address: address,
         });
         patient.save((error, savedPatient) => {
             if (error){
