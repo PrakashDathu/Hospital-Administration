@@ -6,6 +6,7 @@ import Background from "../../assets/images/hush-naidoo-yo01Z-9HQAw-unsplash.jpg
 import * as PropTypes from "prop-types";
 import {verifyAction} from "./actions";
 import {connect} from "react-redux";
+import { withRouter } from "react-router-dom";
 import GridContainer from "../../components/Grid/GridContainer";
 import GridItem from "../../components/Grid/GridItem";
 import {TextField} from "@material-ui/core";
@@ -117,7 +118,7 @@ const mapDispatchToProps = dispatch => ({
         dispatch(verifyAction(token, hist));
     }
 });
-export default  connect(
+export default  withRouter(connect(
     null,
     mapDispatchToProps
-)(withStyles(style)(Verify));
+)(withStyles(style)(Verify)));
