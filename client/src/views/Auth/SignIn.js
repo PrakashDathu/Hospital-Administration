@@ -13,7 +13,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Background from "../../assets/images/hush-naidoo-yo01Z-9HQAw-unsplash.jpg";
-import { loginAction, logoutAction} from "./actions";
+import { loginAction } from "./actions";
 import * as PropTypes from "prop-types";
 import {connect} from "react-redux";
 
@@ -60,7 +60,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Login(props) {
+function SignIn(props) {
   const classes = useStyles();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -136,7 +136,7 @@ function Login(props) {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/register" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
@@ -150,7 +150,7 @@ function Login(props) {
     </Grid>
   );
 }
-Login.propTypes = {
+SignIn.propTypes = {
     auth: PropTypes.object.isRequired,
     login: PropTypes.func.isRequired,
 };
@@ -165,4 +165,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Login);
+)(SignIn);

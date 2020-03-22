@@ -4,12 +4,12 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from '@material-ui/icons/Menu';
 import Typography from "@material-ui/core/Typography";
-import Badge from "@material-ui/core/Badge";
 import * as PropTypes from "prop-types";
 import React from "react";
-import NotificationsIcon from '@material-ui/icons/Notifications';
 import NightsStayIcon from '@material-ui/icons/NightsStay';
 import Brightness7Icon from '@material-ui/icons/Brightness7';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+
 
 export function Nav(props) {
     return <AppBar position="absolute" className={clsx(props.classes.appBar, props.open && props.classes.appBarShift)}>
@@ -36,10 +36,11 @@ export function Nav(props) {
                     <NightsStayIcon/>
                 }
             </IconButton>
-            <IconButton color="inherit">
-                <Badge badgeContent={4} color="secondary">
-                    <NotificationsIcon/>
-                </Badge>
+            <IconButton
+                color="inherit"
+                onClick = {() => props.logout(props.history)}
+            >
+                <ExitToAppIcon />
             </IconButton>
         </Toolbar>
     </AppBar>;

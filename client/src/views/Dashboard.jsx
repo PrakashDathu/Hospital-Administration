@@ -124,6 +124,8 @@ export default function Dashboard(props) {
                 open={open} onClick={handleDrawerOpen}
                 onClick1={props.handleTheme}
                 darkMode={props.isDarkMode}
+                logout={props.logout}
+                history={props.history}
             />
             <Sidebar classes={classes} open={open} onClick={handleDrawerClose} {...props} />
             <main className={classes.content}>
@@ -156,6 +158,7 @@ Dashboard.propTypes = {
     classes: PropTypes.object,
     isDarkMode: PropTypes.bool.isRequired,
     handleTheme: PropTypes.func.isRequired,
+    logout: PropTypes.func.isRequired,
 };
 
 

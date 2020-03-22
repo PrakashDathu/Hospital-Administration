@@ -1,5 +1,6 @@
 import { Constants } from "./constants";
 import { notificationConstants } from '../components/Notiification/constants'
+import {loginConstants} from "../views/Auth/constants";
 
 const initialState = {
   isLoading: false,
@@ -58,6 +59,11 @@ const appReducer = (state = initialState, action) => {
       return {
         ...state,
         regFlag: false,
+      };
+    case loginConstants.LOGOUT:
+      state = initialState;
+      return {
+        ...state
       };
     default:
       return state;

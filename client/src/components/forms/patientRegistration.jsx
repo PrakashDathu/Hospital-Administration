@@ -464,7 +464,7 @@ createdBy: PropTypes.string,
 submit: PropTypes.func.isRequired,
 };
 const mapStateToProps = state => ({
-createdBy: state.auth.user.local.email,
+createdBy: state.auth.user.email,
 });
 const mapDispatchToProps = dispatch => ({
     submit: (values) => {

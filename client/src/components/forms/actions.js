@@ -6,6 +6,12 @@ import React from "react";
 import {changeStoreState} from "../../helpers/utils";
 import {Constants} from "../../App/constants";
 
+axios.interceptors.request.use(function (config) {
+    const token = sessionStorage.getItem('token');
+    config.headers.Authorization =   token ? `Bearer ${token}` : '';
+    return config;
+});
+
 export const createPatient = (values) => {
     return dispatch => {
         return axios

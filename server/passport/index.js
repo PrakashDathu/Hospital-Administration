@@ -1,6 +1,6 @@
 const passport = require('passport');
-const LocalStrategy = require('./local.strategy');
 const User = require('../models/user.model');
+import {jwtStrategy,strategy} from "./local.strategy";
 
 passport.serializeUser((user, done) => {
 	console.log('=== serialize ... called ===');
@@ -24,6 +24,6 @@ passport.deserializeUser((id, done) => {
 });
 
 // ==== Register Strategies ====
-passport.use(LocalStrategy);
-
+passport.use(strategy);
+passport.use(jwtStrategy);
 module.exports = passport;

@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import * as AuthController from '../controllers/auth.controller';
+import { ErrorHandler } from "../util/error";
 const router = new Router();
 const passport = require('../passport');
 
@@ -10,8 +11,15 @@ router.route('/user').get(AuthController.getUser);
 router.route('/login').post(function (req, res, next) {
   passport.authenticate('local', function (err, user, info) {
     if (err) { return next(err); }
-    if (!user) { return res.json({ message: info.message }); }
-    AuthController.login(user._doc, res);
+    if (!user) { return next(new ErrorHandler(info)); }
+    AuthController.login(user, res);
+  })(req, res, next);
+});
+
+router.route('/verifyJwt').get(function (req, res, next) {
+  passport.authenticate('jwt',function(err, user) {
+    if (err) { return next(err); }
+    AuthController.login(user, res);
   })(req, res, next);
 });
 
@@ -20,6 +28,8 @@ router.route('/logout').post(AuthController.logout);
 
 // Attempt to signup
 router.route('/signup').post(AuthController.signup);
+
+router.route('/verify/:token').get(AuthController.verify);
 
 passport.serializeUser(function (user, cb) {
   cb(null, user.id);

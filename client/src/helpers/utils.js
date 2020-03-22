@@ -1,3 +1,7 @@
+import {closeSnackbar, enqueueSnackbar} from "../components/Notiification/actions";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from '@material-ui/icons/Close';
+import React from "react";
 
 export function updateObject(oldObject, newValues) {
     // Encapsulate the idea of passing a new object as the first parameter
@@ -41,3 +45,19 @@ export function formatDate(d){
     const date = new Date(d);
     return monthNames[date.getMonth()]+" "+date.getDate()+", "+date.getFullYear();
 }
+
+export const notify = (msg, variant) => {
+    return dispatch => {
+        dispatch(enqueueSnackbar({
+            message: msg,
+            options: {
+                variant: variant,
+                action: key => (
+                    <IconButton onClick={() => dispatch(closeSnackbar(key))}>
+                        <CloseIcon/>
+                    </IconButton>
+                ),
+            },
+        }));
+    };
+};

@@ -63,7 +63,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 class PatientInfoDialog extends Component {
     constructor(props) {
         super(props);
-        console.log(props);
         this.state={
             value: 0,
         };

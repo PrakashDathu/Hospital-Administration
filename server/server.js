@@ -4,7 +4,7 @@ import expressSession from 'express-session';
 import passport from 'passport';
 import logger from 'morgan';
 import mongoose from 'mongoose';
-
+const { handleError, ErrorHandler } = require('./util/error')
 const path = require('path');
 import config from './config';
 let compression = require('compression');
@@ -28,10 +28,14 @@ import auth from './routes/auth.route'
 import patient from './routes/patient.route'
 import prescription from './routes/prescription.route'
 
-//app.use('/api', stores);
 app.use('/api/auth', auth);
-app.use('/api/client',patient);
-app.use('/api/presc',prescription);
+app.use('/api/client',passport.authenticate('jwt', {session: false}),patient);
+app.use('/api/presc',passport.authenticate('jwt', {session: false}),prescription);
+
+//Error Handling
+app.use((err, req, res, next) => {
+  handleError(err,res);
+});
 // Serve static assets
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files

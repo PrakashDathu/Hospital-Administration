@@ -2,6 +2,12 @@ import axios from "axios";
 import {searchConstants} from "./constants"
 import {changeStoreState} from "../../helpers/utils";
 
+axios.interceptors.request.use(function (config) {
+    const token = sessionStorage.getItem('token');
+    config.headers.Authorization =   token ? `Bearer ${token}` : '';
+    return config;
+});
+
 export const loadPatientRecords = () => {
     return dispatch => {
         return axios
