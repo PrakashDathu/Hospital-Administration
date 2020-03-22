@@ -4,7 +4,7 @@ import { sendEmail, mailOptions } from './config';
 
 export const sendEmailVerificationLink = (req, user, token) => {
 
-    let link="http://"+req.headers.host+"/verify/"+token;
+    let link="https://"+req.headers.host+"/verify/"+token;
 
     const subject = 'Verify Email address';
 
